@@ -361,6 +361,13 @@
 
         // 初始化启动
         loadQuestion();
+        // 强制唤醒手机端视频播放
+        document.body.addEventListener('touchstart', function() {
+            const video = document.getElementById('bg-video');
+            if (video.paused) {
+                video.play();
+            }
+        }, { once: true }); // once: true 表示只要摸一次就触发，之后不再重复执行
     </script>
 </body>
 </html>
